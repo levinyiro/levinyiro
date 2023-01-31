@@ -1,5 +1,5 @@
 ![](https://github-readme-stats.vercel.app/api?username=leventenyiro&show_icons=true&count_private=true)
-![](https://www.zrinyiapartmanok.hu)
+![](https://zrinyiapartmanok.hu/)
 
 <!--
 ### Hi there 👋
