@@ -1,63 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scroll-Controlled Video</title>
-    <style>
-        section {
-            min-height: 100vh;
-        }
+  <title>Scrolling Video Example</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
 
-        #section1 {
-            background: rgba(2, 2, 2, 0.5)
-        }
+    #set-height {
+  display: block;
+}
+#v0 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+p font-family helvetica {
+  font-size: 24px;
+}
 
-        #video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        video {
-            margin-bottom: 50px;
-        }
-    </style>
+  </style>
 </head>
-
 <body>
-    <section></section>
 
-    <section id="section1"></section>
-    <video id="video" class="myVideo" src="assets/switzerland.mp4" width="320" height="176"></video>
-    </section>
-    <section></section>
+<div id="set-height"></div>
+<p id="time"></p>
+<video id="v0" tabindex="0" autobuffer="autobuffer" preload="preload">
+  <!-- <source type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="https://www.apple.com/media/us/mac-pro/2013/16C1b6b5-1d91-4fef-891e-ff2fc1c1bb58/videos/macpro_main_desktop.mp4"></source> -->
+  <source type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="http://localhost:5500/assets/switzerland.mp4"></source>
+</video>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+  <script>
+var frameNumber = 0, // start video at frame 0
+    // lower numbers = faster playback
+    playbackConst = 500, 
+    // get page height from video duration
+    setHeight = document.getElementById("set-height"), 
+    // select video element         
+    vid = document.getElementById('v0'); 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script>
-        var tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#section1",
-                start: "top top",
-                pin: "#section1",
-                end: "100%",
-                scrub: true
-            }
-        });
+// dynamically set the page height according to video length
+vid.addEventListener('loadedmetadata', function() {
+  setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
+});
 
+// Use requestAnimationFrame for smooth playback
+function scrollPlay(){  
+  var frameNumber  = window.pageYOffset/playbackConst;
+  vid.currentTime  = frameNumber;
+  window.requestAnimationFrame(scrollPlay);
+}
 
-        tl.to(".myVideo", 10, {
-            currentTime: 10
-        });
-
-    </script>
-
+window.requestAnimationFrame(scrollPlay);
+  </script>
 </body>
-
 </html>
