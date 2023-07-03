@@ -10,31 +10,29 @@
       background-color: #001A2C;
       color: white;
     }
-
-    #set-height {
-      display: block;
-    }
     
     #v0 {
       border-radius: 20px;
-      position: fixed;
       bottom: 0;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      height: 90%;
+      width: 90%;
+      position: absolute;
     }
-
+    
     p font-family helvetica {
       font-size: 24px;
     }
-
+    
     .divider {
       height: 10vh;
     }
-
+    
     .video-section {
       position: relative;
+      height: 330vh;
+      display: block;
     }
 
     /* section {
@@ -50,13 +48,11 @@
 <body>
 
   <section class="video-section">
-    <div id="set-height">
-      <video id="v0" tabindex="0" autobuffer="autobuffer" preload="preload">
-        <!-- <source type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="https://www.apple.com/media/us/mac-pro/2013/16C1b6b5-1d91-4fef-891e-ff2fc1c1bb58/videos/macpro_main_desktop.mp4"></source> -->
-        <source type="video/mp4" src="assets/switzerland.mp4">
-        </source>
-      </video>
-    </div>
+    <video id="v0" tabindex="0" autobuffer="autobuffer" preload="preload">
+      <!-- <source type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="https://www.apple.com/media/us/mac-pro/2013/16C1b6b5-1d91-4fef-891e-ff2fc1c1bb58/videos/macpro_main_desktop.mp4"></source> -->
+      <source type="video/mp4" src="assets/switzerland.mp4">
+      </source>
+    </video>
   </section>
 
   <section class="divider"></section>
@@ -73,9 +69,9 @@
       setHeight = document.getElementById("set-height"),
       vid = document.getElementById('v0');
 
-    vid.addEventListener('loadedmetadata', function () {
-      setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
-    });
+    // vid.addEventListener('loadedmetadata', function () {
+    //   setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
+    // });
 
     function scrollPlay() {
       var frameNumber = window.pageYOffset / playbackConst;
@@ -99,23 +95,21 @@
       }
     });*/
 
-    /*gsap.timeline({
+    gsap.timeline({
       scrollTrigger: {
         // trigger: '#set-height',
         // endTrigger: '.divider',
-        trigger: '.divider',
-        start: 'top bottom',
+        trigger: '.video-section',
+        start: 'top top',
         end: 'bottom bottom',
         markers: true,
         scrub: true
       }
-    }).from('#v0', {
+    }).from('.video-section', {
       y: 0,
-    }).to('#v0', {
-      opacity: 0,
     }).to('.video-section', {
-      setHeight: 0
-    })*/
+      // opacity: 0,
+    })
 
 
     window.requestAnimationFrame(scrollPlay);
