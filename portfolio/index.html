@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Scrolling Video Example</title>
   <style>
@@ -9,53 +10,93 @@
     }
 
     #set-height {
-  display: block;
-}
-#v0 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-p font-family helvetica {
-  font-size: 24px;
-}
+      display: block;
+      /* display: none; */
+    }
 
+    #v0 {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    p font-family helvetica {
+      font-size: 24px;
+    }
+
+    section {
+      min-height: 500vh;
+    }
   </style>
 </head>
+
 <body>
 
-<div id="set-height"></div>
-<p id="time"></p>
-<video id="v0" tabindex="0" autobuffer="autobuffer" preload="preload">
-  <!-- <source type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="https://www.apple.com/media/us/mac-pro/2013/16C1b6b5-1d91-4fef-891e-ff2fc1c1bb58/videos/macpro_main_desktop.mp4"></source> -->
-  <source type="video/mp4" src="assets/switzerland.mp4"></source>
-</video>
+  <div id="set-height">
+    <video id="v0" tabindex="0" autobuffer="autobuffer" preload="preload">
+      <!-- <source type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="https://www.apple.com/media/us/mac-pro/2013/16C1b6b5-1d91-4fef-891e-ff2fc1c1bb58/videos/macpro_main_desktop.mp4"></source> -->
+      <source type="video/mp4" src="assets/switzerland.mp4">
+      </source>
+    </video>
+  </div>
+
+  <section></section>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
   <script>
-var frameNumber = 0, // start video at frame 0
-    // lower numbers = faster playback
-    playbackConst = 1000, 
-    // get page height from video duration
-    setHeight = document.getElementById("set-height"), 
-    // select video element         
-    vid = document.getElementById('v0'); 
+    var frameNumber = 0, // start video at frame 0
+      // lower numbers = faster playback
+      playbackConst = 1000,
+      // get page height from video duration
+      setHeight = document.getElementById("set-height"),
+      // select video element         
+      vid = document.getElementById('v0');
 
-// dynamically set the page height according to video length
-vid.addEventListener('loadedmetadata', function() {
-  setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
-});
+    // dynamically set the page height according to video length
+    vid.addEventListener('loadedmetadata', function () {
+      setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
+    });
 
-// Use requestAnimationFrame for smooth playback
-function scrollPlay(){  
-  var frameNumber  = window.pageYOffset/playbackConst;
-  vid.currentTime  = frameNumber;
-  window.requestAnimationFrame(scrollPlay);
-}
+    // Use requestAnimationFrame for smooth playback
+    function scrollPlay() {
+      var frameNumber = window.pageYOffset / playbackConst;
+      vid.currentTime = frameNumber;
+      window.requestAnimationFrame(scrollPlay);
+      // vid.style.position = vid.currentTime.toFixed(1) < frameNumber.toFixed(1) ? 'absolute' : 'fixed';
+    }
 
-window.requestAnimationFrame(scrollPlay);
+    // Scrub animation using GSAP
+    gsap.registerPlugin(ScrollTrigger);
+
+    /*ScrollTrigger.create({
+      trigger: "section",
+      start: "top top",
+      end: "top top",
+      scrub: true,
+      markers: true,
+      onUpdate: function (self) {
+        var progress = self.progress;
+        gsap.to(vid, { y: -progress * vid.offsetHeight });
+      }
+    });*/
+
+    ScrollTrigger.create({
+      trigger: "section",
+      start: "top top",
+      end: "bottom bottom",
+      scrub: true,
+      markers: true,
+      onUpdate: function (self) {
+        var progress = self.progress;
+        var translateY = -(progress * vid.offsetHeight);
+        gsap.set(vid, { y: translateY });
+      }
+    });
+
+    window.requestAnimationFrame(scrollPlay);
   </script>
 </body>
+
 </html>
