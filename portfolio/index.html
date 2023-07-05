@@ -9,8 +9,14 @@
       padding: 0;
       background-color: #001A2C;
       color: white;
+      font-family: 'Gilroy-Medium', sans-serif;
     }
 
+    header {
+      display: flex;
+      justify-content: center;
+    }
+    
     .video-section {
       height: 330vh;
     }
@@ -29,12 +35,16 @@
 
     .main {
       min-height: 500vh;
-      background-color: red;
+      /* background-color: red; */
     }
   </style>
+  <link href="https://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
 </head>
 
 <body>
+  <header>
+    <h1>leventenyiro</h1>
+  </header>
 
   <section class="video-section">
     <div class="video-frame">
@@ -64,13 +74,20 @@
     // });
 
     window.addEventListener('scroll', function () {
-      var mainSection = document.querySelector('.main');
+      var header = document.querySelector('header');
       var videoSection = document.querySelector('.video-section');
+      var mainSection = document.querySelector('.main');
 
-      if (window.scrollY + window.innerHeight > mainSection.offsetTop + 70) {
+      console.log(window.scrollY + ' - ' + header.offsetHeight);
+
+      if (window.scrollY + window.innerHeight > mainSection.offsetTop + 30) {
         videoFrame.style.position = '';
         videoFrame.style.alignItems = 'flex-end';
         video.style.marginBottom = '5vh'
+      } else if (window.scrollY < header.offsetHeight) {
+        videoFrame.style.position = '';
+        videoFrame.style.alignItems = 'flex-start';
+        video.style.marginTop = '5vh'
       } else {
         videoFrame.style.position = 'fixed';
         videoFrame.style.alignItems = '';
