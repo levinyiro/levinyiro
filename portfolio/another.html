@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .first-section {
+            display: flex;
+            justify-content: center;
+            /* align-items: flex-end; */
+            height: 150vh;
+        }
+
+        .square {
+            width: 100px;
+            height: 98vh;
+            background-color: red;
+            /* position: fixed; */
+        }
+
+        section {
+            min-height: 150vh;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="first-section">
+        <div class="square"></div>
+    </section>
+
+    <section class="second-section">
+        <h1>Second</h1>
+    </section>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            var square = document.querySelector('.square');
+            var secondSection = document.querySelector('.second-section');
+            var firstSection = document.querySelector('.first-section');
+
+            if (window.scrollY + window.innerHeight > secondSection.offsetTop) {
+                square.style.position = '';
+                firstSection.style.alignItems = 'flex-end';
+            } else {
+                square.style.position = 'fixed';
+                firstSection.style.alignItems = '';
+            }
+        });
+    </script>
+</body>
+
+</html>
