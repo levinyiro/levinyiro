@@ -15,6 +15,7 @@
     header {
       display: flex;
       justify-content: center;
+      z-index: 1000;
     }
     
     .video-section {
@@ -37,18 +38,22 @@
       min-height: 500vh;
       /* background-color: red; */
     }
+
+    span {
+      color: #84FF9F;
+    }
   </style>
   <link href="https://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
 </head>
 
 <body>
   <header>
-    <h1>leventenyiro</h1>
+    <h1>levente<span>nyiro</span></h1>
   </header>
 
   <section class="video-section">
     <div class="video-frame">
-      <video class="video" tabindex="0" width="1400" autobuffer="autobuffer" preload="preload">
+      <video class="video" tabindex="0" width="1300" autobuffer="autobuffer" preload="preload">
         <!-- <source type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="https://www.apple.com/media/us/mac-pro/2013/16C1b6b5-1d91-4fef-891e-ff2fc1c1bb58/videos/macpro_main_desktop.mp4"></source> -->
         <source type="video/mp4" src="assets/switzerland.mp4">
         </source>
@@ -78,7 +83,7 @@
       var videoSection = document.querySelector('.video-section');
       var mainSection = document.querySelector('.main');
 
-      console.log(window.scrollY + ' - ' + header.offsetHeight);
+      // console.log(window.scrollY + ' - ' + header.offsetHeight);
 
       if (window.scrollY + window.innerHeight > mainSection.offsetTop + 30) {
         videoFrame.style.position = '';
@@ -90,8 +95,9 @@
         video.style.marginTop = '5vh'
       } else {
         videoFrame.style.position = 'fixed';
-        videoFrame.style.alignItems = '';
-        video.style.marginBottom = ''
+        videoFrame.style.alignItems = 'center';
+        video.style.marginBottom = '20vh';
+        video.style.marginTop = '0';
       }
     });
 
