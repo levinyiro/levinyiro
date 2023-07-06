@@ -1,7 +1,6 @@
 window.addEventListener('scroll', function () {
     var title = document.getElementById('paris-title');
     var imageContainer = document.querySelector('.image-container');
-    var imageFG = imageContainer.querySelector('img:first-child');
 
     var scrollPosition = window.scrollY;
     var titleOffset = imageContainer.offsetTop - window.innerHeight + 300;
