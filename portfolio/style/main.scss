@@ -6,6 +6,26 @@ body {
     font-family: 'Gilroy-Medium', sans-serif;
 }
 
+::selection {
+    background-color: #84ff9f2f;
+}
+
+.cursor-circle {
+    border: 0.5px solid #84FF9F;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border-radius: 50px;
+    top: -10px;
+    left: -10px;
+    transform: translateX(-10px) translateY(-10px);
+    pointer-events: none;
+    z-index: 9999;
+    -webkit-transition: opacity .6s ease-in-out;
+    transition: opacity .6s ease-in-out;
+    box-shadow: 0px 0px 10px 10px #84ff9f2f;
+}
+
 header {
     display: flex;
     justify-content: center;
@@ -75,16 +95,4 @@ header {
         left: 0;
         z-index: -1;
     }
-}
-
-.image-container img {
-
-}
-
-.image-container  {
-
-}
-
-.image-container  {
-
 }
