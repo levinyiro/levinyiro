@@ -10,20 +10,11 @@ var frameNumber = 0,
 window.addEventListener('scroll', function () {
     var header = document.querySelector('header');
     var mainSection = document.querySelector('.main');
+    
+    var distance = window.scrollY + header.offsetHeight - window.innerHeight + 650;
 
-    if (window.scrollY + window.innerHeight > mainSection.offsetTop + 30) {
-        videoFrame.style.position = '';
-        videoFrame.style.alignItems = 'flex-end';
-        video.style.marginBottom = '5vh'
-    } else if (window.scrollY < header.offsetHeight - 40) {
-        videoFrame.style.position = '';
-        videoFrame.style.alignItems = 'flex-start';
-        video.style.marginTop = '5vh'
-    } else {
-        videoFrame.style.position = 'fixed';
-        videoFrame.style.alignItems = 'center';
-        video.style.marginBottom = '20vh';
-        video.style.marginTop = '0';
+    if (distance > 0 && window.scrollY + window.innerHeight < mainSection.offsetTop - 50) {
+        videoFrame.style.transform = 'translateY(' + distance + 'px)';
     }
 });
 

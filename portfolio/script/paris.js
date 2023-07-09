@@ -8,10 +8,7 @@ window.addEventListener('scroll', function () {
     var parisPicOffset = parisPic.offsetTop - window.innerHeight + 350;
 
     if (scrollPosition >= titleOffset && scrollPosition < parisPicOffset) {
-        console.log(true);
         var distance = scrollPosition - titleOffset;
         title.style.transform = 'translateY(' + distance + 'px)';
-    } else {
-        title.style.transform = 'translateY(0)';
     }
 });
