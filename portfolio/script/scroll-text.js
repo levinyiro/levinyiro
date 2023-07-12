@@ -2,19 +2,19 @@ let lastScrollPosition = 0;
 let lastTimestamp = Date.now();
 let scrollSpeed = 0;
 
-window.addEventListener('scroll', function () {
-    const currentScrollPosition = window.scrollY;
-    const currentTimestamp = Date.now();
-    const timeDifference = currentTimestamp - lastTimestamp;
+// window.addEventListener('scroll', function () {
+//     const currentScrollPosition = window.scrollY;
+//     const currentTimestamp = Date.now();
+//     const timeDifference = currentTimestamp - lastTimestamp;
 
-    const distance = Math.abs(currentScrollPosition - lastScrollPosition);
-    scrollSpeed = distance / timeDifference;
+//     const distance = Math.abs(currentScrollPosition - lastScrollPosition);
+//     scrollSpeed = distance / timeDifference;
 
-    lastScrollPosition = currentScrollPosition;
-    lastTimestamp = currentTimestamp;
+//     lastScrollPosition = currentScrollPosition;
+//     lastTimestamp = currentTimestamp;
 
-    console.log('Scroll speed:', scrollSpeed);
-});
+//     console.log('Scroll speed:', scrollSpeed);
+// });
 
 // gsap.to('.milan-title', {
 //     x: '-300%',
@@ -32,11 +32,11 @@ window.addEventListener('scroll', function () {
 const titleTimeline = gsap.timeline({ repeat: -1 });
 
 // Add an animation to the timeline
-titleTimeline.to('.milan-title', {
-    x: '-300%',
-    ease: 'power1.inOut',
-    duration: 10, // Adjust the duration to control the speed of the movement
-});
+// titleTimeline.to('.milan-title', {
+//     x: '-300%',
+//     ease: 'power1.inOut',
+//     duration: 10, // Adjust the duration to control the speed of the movement
+// });
 
 gsap.to('.milan-title', {
     x: '-300%',
