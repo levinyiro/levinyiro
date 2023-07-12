@@ -58,12 +58,11 @@ header span {
 }
 
 .main {
-  min-height: 500vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-bottom: 5vh;
+  padding-bottom: 100vh;
   overflow: hidden;
 }
 .main h3 {
@@ -80,6 +79,7 @@ header span {
   overflow: visible;
   text-overflow: unset;
   display: inline-block;
+  font-size: 15vh;
 }
 
 .image-container {
