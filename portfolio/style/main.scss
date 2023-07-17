@@ -129,6 +129,12 @@ header {
         transform: translateX(0%);
     }
     100% {
-        transform: translateX(-150%);
+        transform: translateX(-200%);
     }
+}
+
+.malta-title {
+    margin-top: 1000px !important;
+    color: sandybrown !important;
+    padding: 50vh 0;
 }
