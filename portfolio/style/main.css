@@ -5,7 +5,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #001A2C;
+  background-color: #001a2c;
   color: white;
   font-family: "Gilroy-Medium", sans-serif;
 }
@@ -38,7 +38,7 @@ header {
   z-index: 1000;
 }
 header span {
-  color: #84FF9F;
+  color: #84ff9f;
 }
 
 .video-section {
@@ -70,10 +70,11 @@ header span {
   font-family: "Libre Baskerville", sans-serif;
   margin: 0;
   color: #cdb4db;
-  transition: top 0.5s ease-in-out;
 }
-.main .milan-title {
+.main h4 {
   max-width: 100%;
+  font-family: "Libre Baskerville", sans-serif;
+  margin: 0;
   color: #ebebeb;
   white-space: nowrap;
   overflow: visible;
@@ -103,4 +104,25 @@ header span {
   top: 0;
   left: 0;
   z-index: -1;
+}
+
+.rolling-container {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+.rolling-text {
+  display: inline-block;
+  padding-right: 200px;
+  animation: roll 10s linear infinite;
+}
+
+@keyframes roll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-150%);
+  }
 }/*# sourceMappingURL=main.css.map */

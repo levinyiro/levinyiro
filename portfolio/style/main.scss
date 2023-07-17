@@ -5,9 +5,9 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background-color: #001A2C;
+    background-color: #001a2c;
     color: white;
-    font-family: 'Gilroy-Medium', sans-serif;
+    font-family: "Gilroy-Medium", sans-serif;
 }
 
 ::selection {
@@ -25,8 +25,8 @@ body {
     transform: translateX(-15px) translateY(-15px);
     pointer-events: none;
     z-index: 9999;
-    -webkit-transition: opacity .6s ease-in-out;
-    transition: opacity .6s ease-in-out;
+    -webkit-transition: opacity 0.6s ease-in-out;
+    transition: opacity 0.6s ease-in-out;
     // box-shadow: 0px 0px 10px 10px #84ff9f2f;
 }
 
@@ -36,7 +36,7 @@ header {
     z-index: 1000;
 
     span {
-        color: #84FF9F;
+        color: #84ff9f;
     }
 }
 
@@ -63,18 +63,18 @@ header {
     text-align: center;
     padding-bottom: 100vh;
     overflow: hidden;
-    
+
     h3 {
         font-size: 30vh;
-        font-family: 'Libre Baskerville', sans-serif;
+        font-family: "Libre Baskerville", sans-serif;
         margin: 0;
         color: #cdb4db;
-        
-        transition: top 0.5s ease-in-out;
     }
-    
-    .milan-title {
+
+    h4 {
         max-width: 100%;
+        font-family: "Libre Baskerville", sans-serif;
+        margin: 0;
         color: #ebebeb;
         white-space: nowrap;
         overflow: visible;
@@ -109,5 +109,26 @@ header {
         top: 0;
         left: 0;
         z-index: -1;
+    }
+}
+
+.rolling-container {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+}
+
+.rolling-text {
+    display: inline-block;
+    padding-right: 200px;
+    animation: roll 10s linear infinite;
+}
+
+@keyframes roll {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-150%);
     }
 }
