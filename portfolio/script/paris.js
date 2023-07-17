@@ -10,5 +10,10 @@ window.addEventListener('scroll', function () {
     if (scrollPosition >= titleOffset && scrollPosition < parisPicOffset) {
         var distance = scrollPosition - titleOffset;
         title.style.transform = 'translateY(' + distance + 'px)';
+        // title.style.filter = `brightness(${1 / (distance * 0.0009)})`;
+        // console.log(1 / distance);
+        
+    } else {
+        title.style.filter = 'brightness(1)';
     }
 });
