@@ -1,11 +1,9 @@
-var circle = document.querySelector('.cursor-circle');
+gsap.set(".cursor-circle", {xPercent: -50, yPercent: -50});
 
-function moveCircle(e) {
-  gsap.to(circle, 0.8, {
-    left: e.pageX,
-    top: e.pageY,
-    ease: "power1.out"
-  });
-}
+let xTo = gsap.quickTo(".cursor-circle", "x", {duration: 0.6, ease: "power3"}),
+    yTo = gsap.quickTo(".cursor-circle", "y", {duration: 0.6, ease: "power3"});
 
-window.addEventListener('mousemove', moveCircle);
+window.addEventListener("mousemove", e => {
+  xTo(e.clientX);
+  yTo(e.clientY);
+});

@@ -15,19 +15,17 @@ body {
 }
 
 .cursor-circle {
-    border: 2px solid #84ff9f71;
     width: 30px;
     height: 30px;
-    position: absolute;
+    position: fixed;
     border-radius: 50px;
-    top: -15px;
-    left: -15px;
-    transform: translateX(-15px) translateY(-15px);
+    top: 0;
+    left: 0;
     pointer-events: none;
     z-index: 9999;
     -webkit-transition: opacity 0.6s ease-in-out;
     transition: opacity 0.6s ease-in-out;
-    // box-shadow: 0px 0px 10px 10px #84ff9f2f;
+    backdrop-filter: invert(100%);
 }
 
 header {
