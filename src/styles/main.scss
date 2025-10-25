@@ -4,26 +4,126 @@ $white: #D9D9D9;
 $black: #0C1821;
 $secondary-color: #324A5F;
 $purple: #CCC9DC;
+$green: #55d477;
 
 * {
   font-family: "Plus Jakarta Sans", sans-serif;
-  background-color: $white;
   color: $black;
+}
+
+body {
+    background-color: $white;
+}
+
+h1 {
+    font-size: 100px !important;
+    font-weight: 800 !important;
 }
 
 nav {
     .navbar-brand {
         font-weight: 800;
         font-size: 24px;
+
+        span {
+            color: $green;
+        }
     }
+    
+    backdrop-filter: blur(20px);
+}
+/* ---------- Mobile fullscreen menu ---------- */
+#fullscreen-menu .menu-content {
+  display: flex;
+  flex-direction: column; /* stack items vertically */
+  align-items: center;
+}
+
+#fullscreen-menu .menu-content a:last-child {
+  margin-bottom: 0; /* remove margin after the last item */
+}
+
+#fullscreen-menu .menu-content a:hover {
+  transform: scale(1.1);
+  color: #CCC9DC;
+}
+
+#fullscreen-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease; /* smooth fade-in/out */
+  z-index: 9999;
+}
+
+#fullscreen-menu.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#fullscreen-menu .menu-content a {
+  color: #fff;
+  font-size: 3rem;
+  text-decoration: none;
+  margin: 1rem 0; /* items under each other */
+  transition: transform 0.2s, color 0.2s;
+}
+/* Blur content behind overlay */
+body.menu-open #hero,
+body.menu-open nav {
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+/* ---------- Desktop menu ---------- */
+.desktop-menu a {
+  margin-left: 2rem; /* spacing between items */
+  color: #0C1821;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.desktop-menu a:hover {
+  color: #324A5F;
+}
+
+/* Optional: add underline on hover */
+.desktop-menu a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+  background: #324A5F;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+.desktop-menu a:hover::after {
+  width: 100%;
 }
 
 #hero {
     height: 100vh;
+    position: relative;
 
-    h1 {
-        font-size: 100px;
-        font-weight: 800;
+    h1, h2 {
+        transform: translateX(100px);
+        z-index: 100 !important;
+        position: relative;
+        background-color: none;
     }
 
     .row, .col-md-6 {
@@ -35,6 +135,9 @@ nav {
         width: 80%;
         object-fit: cover;
         border-radius: 16px;
+        z-index: 99 !important;
+        position: relative;
+        transform: translateX(-100px);
     }
 }
 
