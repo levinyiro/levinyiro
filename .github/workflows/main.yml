@@ -21,7 +21,6 @@ jobs:
 
       - name: Compile CSS from SCSS files
         run: |
-          cd src
           npm install -g sass
           sass styles/main.scss styles/main.css
 
