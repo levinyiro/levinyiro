@@ -24,6 +24,7 @@ jobs:
         with:
           source: styles/main.scss
           destination: styles/main.css
+          working-directory: src
 
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
