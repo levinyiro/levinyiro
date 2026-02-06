@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
-$green: #55d477;
+$primary: #000091;
  :host {
 	display: block;
 	color: #111111;
@@ -37,7 +37,7 @@ $green: #55d477;
     font-size: 24px;
 
     span {
-        color: $green;
+        color: $primary;
     }
 }
 }
