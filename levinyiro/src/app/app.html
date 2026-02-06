@@ -1,0 +1,174 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<div class="page">
+  <header class="site-header">
+    <nav class="navbar">
+      <a class="navbar-brand" href="#">levi<span>nyiro</span></a>
+        <button class="navbar-toggler d-lg-none" type="button" id="menu-toggle">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      <div class="nav-links">
+        <a class="nav-item" href="#about">About</a>
+        <a class="nav-item" href="#work">Work</a>
+        <a class="nav-item" href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top" class="main">
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Creative Developer</p>
+        <h1 class="hero-title">
+          Hi, I’m <span class="accent">Levente Nyírő</span>.
+        </h1>
+        <p class="hero-subtitle">
+          I design and build immersive digital experiences with a focus on motion, interaction,
+          and clean, modern UI.
+        </p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#contact">Let’s talk</a>
+          <a class="ghost-btn" href="#about">Learn more</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img class="hero-image" src="assets/hero.png" alt="Portrait of Levente Nyírő" />
+        <div class="hero-card">
+          <p class="hero-card-title">Available for collaborations</p>
+          <p class="hero-card-text">Branding • UI/UX • Motion</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="about-grid">
+        <div>
+          <h2>About</h2>
+          <p>
+            I’m Levente Nyírő, a product-minded developer who loves crafting elegant interfaces
+            and smooth transitions. My work blends visual storytelling with performant front-end
+            engineering to create experiences that feel effortless.
+          </p>
+        </div>
+        <div class="about-highlights">
+          <div class="highlight">
+            <h3>Design systems</h3>
+            <p>Scalable UI libraries with accessible, consistent components.</p>
+          </div>
+          <div class="highlight">
+            <h3>Motion</h3>
+            <p>Purposeful animation that guides attention and adds polish.</p>
+          </div>
+          <div class="highlight">
+            <h3>Development</h3>
+            <p>Modern Angular builds with clean architecture and rapid delivery.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="work">
+      <h2>Selected Work</h2>
+      <div class="work-grid">
+        <article class="work-card">
+          <p class="work-label">Product</p>
+          <h3>Immersive landing page</h3>
+          <p>Smooth scroll storytelling with bold visuals.</p>
+        </article>
+        <article class="work-card">
+          <p class="work-label">UI/UX</p>
+          <h3>Portfolio redesign</h3>
+          <p>A crisp, responsive layout that highlights key projects.</p>
+        </article>
+        <article class="work-card">
+          <p class="work-label">Motion</p>
+          <h3>Interactive brand system</h3>
+          <p>Animated components that reinforce the brand voice.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="cv" class="cv">
+      <div class="cv-header">
+        <h2>Curriculum Vitae</h2>
+        <p>Highlights from my professional experience and academic background.</p>
+      </div>
+      <div class="cv-row">
+        <div class="cv-column cv-column--full">
+          <h3>Experience</h3>
+          <div class="cv-cards">
+            <app-experience
+              title="Medior Full-Stack Developer"
+              institution="Abesse Zrt."
+              fromYear="10/2025"
+              toYear="01/2026"
+              description="Development in .NET and Angular with DevExpress library."
+            ></app-experience>
+            <app-experience
+              title="Full-Stack Developer"
+              institution="Berries and Company Kft."
+              fromYear="01/2022"
+              toYear="10/2025"
+              description="Development of external orders using Angular and .NET, NodeJS, Flutter and React technologies. For internal developments, project management and creation of certain design elements."
+            ></app-experience>
+            <app-experience
+              title="System Development Intern"
+              institution="Online Zrt."
+              fromYear="04/2022"
+              toYear="05/2024"
+              description="I developed programs using the company’s proprietary programming language to meet the clients’ objectives."
+            ></app-experience>
+            <app-experience
+              title="Software Developer (Contract)"
+              institution="Inrix (USA)"
+              fromYear="Contract"
+              toYear=""
+              description="Writing a console-based Java program to organize large data sets and displaying them using VueJS."
+            ></app-experience>
+            <app-experience
+              title="System Development Intern"
+              institution="Online Zrt."
+              fromYear="07/2020"
+              toYear="09/2020"
+              description="I developed programs using the company’s proprietary programming language to meet the clients’ objectives."
+            ></app-experience>
+          </div>
+        </div>
+        <div class="cv-column cv-column--full">
+          <h3>Education</h3>
+          <div class="cv-cards">
+            <app-experience
+              title="Computer Science MSc"
+              institution="Eötvös Loránd University"
+              fromYear="2023"
+              toYear="2025"
+              description="Studied project management, programming patterns, artificial intelligence, testing, and marketing."
+            ></app-experience>
+            <app-experience
+              title="Computer Science BSc"
+              institution="Eötvös Loránd University"
+              fromYear="2020"
+              toYear="2023"
+              description="Studied software engineering, UI development, testing, and databases in various programming languages."
+            ></app-experience>
+            <app-experience
+              title="Software Developer"
+              institution="Technical secondary school"
+              fromYear="2018"
+              toYear="2020"
+              description="Studied basics of programming, web development, and software testing."
+            ></app-experience>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="footer">
+    <div>
+      <h2>Let’s build something great.</h2>
+      <p>Reach out for collaborations or a quick hello.</p>
+    </div>
+    <a class="primary-btn" href="mailto:hello@levinyiro.com">hello@levinyiro.com</a>
+  </footer>
+</div>

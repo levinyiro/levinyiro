@@ -1,0 +1,17 @@
+<article class="education-card">
+  <img
+    *ngIf="imageSrc"
+    class="education-logo"
+    [src]="imageSrc"
+    [alt]="institution || title"
+  />
+  <div class="education-content">
+    <p class="education-meta" *ngIf="toYear; else singleMeta">{{ fromYear }} — {{ toYear }}</p>
+    <ng-template #singleMeta>
+      <p class="education-meta">{{ fromYear }}</p>
+    </ng-template>
+    <h4 class="education-title">{{ title }}</h4>
+    <p class="education-institution">{{ institution }}</p>
+    <p class="education-description" *ngIf="description">{{ description }}</p>
+  </div>
+</article>
